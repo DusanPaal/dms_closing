@@ -1,0 +1,7 @@
+Country:                  # name of the country
+  company_code: "####"    # (str) 4-digit company code for the country
+  active: true            # (bool) true if the country is active
+  case_rx: 4000\d{5}      # (str) regex pattern for case number
+  base_threshold: 50.00   # (float) base threshold for closing disputed cases (999999 if there is no threshold)
+  tax_thresholds:         # (dict) tax thresholds for the country
+    YR: 60.00             # (float) threshold for tax type YR

@@ -1,0 +1,125 @@
+sap:
+  system:       # (str) SAP system name (e.g. P25)
+  gui_exe_path: # (str) path to the local SAP GUI executable
+  fbl5n_layout: # (str) name of the FBL5N layout for data export
+  dms_layout:   # (str) name of the DMS layout for data export
+
+data:
+  # (str) path to the file with closing rules
+  rules_path: $appdir$\rules.yaml 
+
+  # (str) path to the dump directory
+  dump_dir: $appdir$\dump 
+
+  # (str) path to the temp directory
+  temp_dir: $appdir$\temp 
+
+  # (str) path to the export directory
+  export_dir: $appdir$\temp\exports 
+
+  # (str) name of the DMS export file
+  dms_export_name: exp_dms_data.txt
+
+  # (str) name of the FBL5N export file
+  fbl5n_export_name: exp_fbl5n_$type$_items.txt
+
+  # (str) name of the output file
+  output_name: output.pkl 
+
+  # (int) number of past days for which 
+  # the data should be exported
+  past_days: 4  
+
+notifications:
+  # (str) path to the notification temp directory
+  notification_dir: $appdir$\temp\notification
+
+  # (str) name of the notification file
+  notification_name: notification.html 
+
+  # (str) name of the summary file
+  summary_name: summary.txt
+
+  # (str) path to the notification template
+  template_path: $appdir$\notification\template.html 
+
+  # (bool) true if the notifications 
+  # should be sent to users
+  send: true 
+
+  # (str) email of the sender
+  sender: notifications@ledvance.com 
+
+  # (str) subject of the email; $date$ is
+  # replaced with the current date
+  subject: DMS Closing Summary ($date$)
+
+  # (str) SMTP host name
+  host: intrelay.ledvance.com
+
+   # (int) SMPT port number
+  port:
+
+  recipients:
+    # (str) name of the recipient
+  - name:     
+
+    # (str) surname of the recipient
+    surname:  
+
+    # (str) email of the recipient
+    mail: 
+    
+    # (list of str or 'All') names of countries for  
+    # which the recipient receives reports; 'All' 
+    # means the recipientreceives reports for all 
+    # available countries
+    country:  
+
+reports:
+
+  # (str) name format of the XLSX report file; the placeholders 
+  # $country$ and $company_code$ are replaced with the actual values 
+  # during the report generation
+  report_name: DMS_Closing_Report_$country$_$company_code$.xlsx
+
+  # (str) name of the sheet with the data
+  sheet_name: Data
+
+  # (str) path to the local report temporary directory
+  local_report_dir: $appdir$\reports
+
+  # (str) path to the network report directory
+  net_report_dir: N:\path\to\upload\directory
+
+  # (str) format of the subdirectory  
+  # in the network report directory
+  net_report_subdir_format: "%Y_%m_%d"
+
+  # (list of str) names of the columns in 
+  # the report that defines their order
+  field_order:
+    - "Document_Number"
+    - "Document_Assignment"
+    - "Clearing_Document"
+    - "DC_Amount"
+    - "Warnings"
+    - "Message"
+    - "Case_ID"
+    - "Root_Cause"
+    - "Status"
+    - "Status_Sales"
+    - "Disputed_Amount"
+    - "Short_Description_of_Customer"
+    - "Debitor"
+    - "Head_Office"
+    - "External_Reference"
+    - "Title"
+    - "Coordinator"
+    - "Processor"
+    - "Assignment"
+    - "Solved_On"
+    - "Created_On"
+    - "Created_By"
+    - "Category"
+    - "Category_Description"
